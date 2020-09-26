@@ -1,0 +1,5 @@
+Timer_InputCapture.c:32:6:TIMx_IC_Init	80	static
+Timer_InputCapture.c:79:6:HAL_TIM_IC_MspInit	32	static
+Timer_InputCapture.c:100:6:TIMx_IC_Start	32	static
+Timer_InputCapture.c:106:6:TIMx_IC_Stop	32	static
+Timer_InputCapture.c:112:6:HAL_TIM_IC_CaptureCallback	24	static

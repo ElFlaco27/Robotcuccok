@@ -1,0 +1,4 @@
+MotorController.c:13:6:Motor_Init	40	static
+MotorController.c:95:6:Motor_Start	40	static
+MotorController.c:145:6:Motor_Stop	40	static
+MotorController.c:195:6:Motorx_Set_Speed	64	static
