@@ -67,8 +67,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	WheelSpeed_Typedef Calculated_wheel_speeds;
-	static GPIO_InitTypeDef  GPIO_InitStruct;
-	static GPIO_InitTypeDef  GPIO_InitStruct2;
   /* USER CODE END 1 */
   
 
@@ -85,30 +83,8 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  Calculated_wheel_speeds.WheelSpeed_1 = 75;
-  Calculated_wheel_speeds.WheelSpeed_3 = -15;
-  Write_Calculated_Wheel_Speeds(&Calculated_wheel_speeds);
   /* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  MX_GPIO_Init();
-  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull  = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-
-  GPIO_InitStruct.Pin = GPIO_PIN_10;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  GPIO_InitStruct2.Mode  = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct2.Pull  = GPIO_PULLUP;
-    GPIO_InitStruct2.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-
-    GPIO_InitStruct2.Pin = GPIO_PIN_1;
-    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct2);
-    HAL_GPIO_WritePin(GPIOA,GPIO_PIN_10,1);
-    HAL_GPIO_WritePin(GPIOC,GPIO_PIN_1,1);
   /* USER CODE BEGIN 2 */
   Init_System_Startup();
 
@@ -117,10 +93,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //Provide_Robot_Speed();
-	  //Calculate_Wheel_Speeds();
-
+	  Provide_Robot_Speed();
+	  Calculate_Wheel_Speeds();
 	  Motorx_Set_Speed();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -181,59 +157,10 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(EN_B_GPIO_Port, EN_B_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(EN_A_GPIO_Port, EN_A_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : EN_B_Pin */
-  GPIO_InitStruct.Pin = EN_B_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(EN_B_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : EN_A_Pin */
-  GPIO_InitStruct.Pin = EN_A_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(EN_A_GPIO_Port, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	uint8_t btn_pressed;
-
-	if(sys_count > (get_sys_count+800))
-	{
-		btn_pressed = TRUE;
-		Write_Button_Pressed(&btn_pressed);
-		get_sys_count= sys_count;
-	}
-
-}
-
-
 void SysTick_Handler(void)
 {
     ++sys_count;
