@@ -23,6 +23,8 @@ RobotSpeed_Typedef RemoteControl_Provided_Robot_Speed;
 
 WheelSpeed_Typedef WheelSpeedCalculation_Calculated_WheelSpeeds;
 
+WheelSpeed_Typedef WheelSpeedProvider_Calculated_WheelSpeeds;
+
 
 
 void Read_IC_Channel1_Raw_data(uint32_t * data)
@@ -144,5 +146,15 @@ void Read_Calculated_Wheel_Speeds(WheelSpeed_Typedef * data)
 void Write_Calculated_Wheel_Speeds(WheelSpeed_Typedef * data)
 {
 	WheelSpeedCalculation_Calculated_WheelSpeeds = (* data);
+}
+
+void Read_Provided_Wheel_Speeds(WheelSpeed_Typedef * data)
+{
+	(* data) = WheelSpeedProvider_Calculated_WheelSpeeds;
+}
+
+void Write_Provided_Wheel_Speeds(WheelSpeed_Typedef * data)
+{
+	WheelSpeedProvider_Calculated_WheelSpeeds = (* data);
 }
 

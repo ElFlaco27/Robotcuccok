@@ -39,7 +39,7 @@ void TIMx_IC_Init(TIM_IC_Typedef config)
 
 	/* USER CODE END TIM1_Init 1 */
 	TIM_handler.Instance = config.TIMx;
-	TIM_handler.Init.Prescaler = (uint32_t)(SystemCoreClock / TIMx_IC_CLK) - 1;
+	TIM_handler.Init.Prescaler = 0;
 	TIM_handler.Init.CounterMode = TIM_COUNTERMODE_UP;
 	TIM_handler.Init.Period = 65535;
 	TIM_handler.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;

@@ -1,6 +1,6 @@
 Drivers/Robocup/Timer/src/Timer_encoder.o: \
  ../Drivers/Robocup/Timer/src/Timer_encoder.c \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_encoder.h \
+ ../Drivers/Robocup/Timer/Inc/Timer_encoder.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -31,13 +31,15 @@ Drivers/Robocup/Timer/src/Timer_encoder.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../Inc/Common_Data.h ../Inc/variation.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
+ ../Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
  ../Inc/variation.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Port_config.h
+ ../Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h \
+ ../Drivers/Robocup/Timer/Inc/Port_config.h
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_encoder.h:
+../Drivers/Robocup/Timer/Inc/Timer_encoder.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 
@@ -99,14 +101,18 @@ Drivers/Robocup/Timer/src/Timer_encoder.o: \
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
+
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+
 ../Inc/Common_Data.h:
 
 ../Inc/variation.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
+../Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
 
 ../Inc/variation.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
+../Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Port_config.h:
+../Drivers/Robocup/Timer/Inc/Port_config.h:

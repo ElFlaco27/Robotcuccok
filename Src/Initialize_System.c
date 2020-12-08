@@ -11,7 +11,7 @@ TIM_HandleTypeDef htim1;
 
 void Init_System_Startup(void)
 {
-	//Remote_Control_init();
+	Remote_Control_init();
 	Init_Wheel_Speed_Provision();
 	//Motor_Init();
 	//Motor_Start();

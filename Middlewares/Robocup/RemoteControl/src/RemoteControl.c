@@ -139,7 +139,6 @@ void Calibrate_Remote_Control(void)
 	uint32_t Channel3_raw_data;
 	while(calibration_State != CALIBRATION_DONE)
 	{
-		Read_Button_Pressed(&btn_pressed);
 		Read_IC_Channel1_Raw_data(&Channel1_raw_data);
 		Read_IC_Channel2_Raw_data(&Channel2_raw_data);
 		Read_IC_Channel3_Raw_data(&Channel3_raw_data);

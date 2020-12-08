@@ -15,9 +15,15 @@
 #include "WheelSpeedCalculation.h"
 
 
-#define MOT_TO_WHEEL_RATIO	5u
+#define MOT_TO_WHEEL_RATIO	10u
 
-#define DEG_TO_RAD_RATE	(float)0.0174533
+#define ENCODER_COUNT	60u
+
+#define RAD_PER_S_TO_RPM	(float)9.5492965964254
+#define M_PI                (float)3.14159265358979323846
+
+#define FORWARD_DIR 0
+#define BACKWARD_DIR 0x10
 
 void Init_Wheel_Speed_Provision(void);
 

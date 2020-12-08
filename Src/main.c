@@ -44,6 +44,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart2;
+
 osThreadId MwPeriodicTaskHandle;
 osThreadId LowLevelPeriodiHandle;
 osThreadId AppPeriodicTaskHandle;
@@ -55,6 +57,7 @@ uint32_t get_sys_count=0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
 void StartMwPeriodicTask(void const * argument);
 void StartLowLevelPeriodicTask(void const * argument);
 void StartAppPeriodicTask(void const * argument);
@@ -95,6 +98,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   Init_System_Startup();
 
@@ -163,6 +167,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
@@ -193,12 +198,53 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2;
+  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /** Configure the main internal regulator output voltage 
   */
   if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
 }
 
 /**
@@ -228,17 +274,39 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_StartMwPeriodicTask */
 void StartMwPeriodicTask(void const * argument)
 {
-    
-    
-    
-    
-    
+	/* USER CODE BEGIN 5 */
+	TickType_t xLastWakeTime;
+	uint32_t last_data;
+	const TickType_t xFrequency = 1000;
 
-  /* USER CODE BEGIN 5 */
+	// Initialise the xLastWakeTime variable with the current time.
+	xLastWakeTime = xTaskGetTickCount();
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	vTaskDelayUntil( &xLastWakeTime, xFrequency );
+	char aTxBuffer[32];
+	WheelSpeed_Typedef Provided_wheel_speeds;
+	uint32_t Data_to_send;
+    Read_Provided_Wheel_Speeds(&Provided_wheel_speeds);
+    if(Provided_wheel_speeds.WheelSpeed_1 < 0)
+    {
+    	Data_to_send=(uint32_t)(Provided_wheel_speeds.WheelSpeed_1*-1);
+    	if(last_data!=Data_to_send)
+    	{
+    		HAL_UART_Transmit(&huart2, (uint32_t *) &aTxBuffer, sprintf(aTxBuffer, "Speed: - %d\n", Data_to_send) , 100);
+    	}
+    }
+    else
+    {
+    	Data_to_send=(uint32_t)Provided_wheel_speeds.WheelSpeed_1;
+    	if(last_data!=Data_to_send)
+    	{
+    		HAL_UART_Transmit(&huart2, (uint32_t *) &aTxBuffer, sprintf(aTxBuffer, "Speed:  %d\n", Data_to_send) , 100);
+    	}
+
+    }
+    last_data=Data_to_send;
   }
   /* USER CODE END 5 */ 
 }
@@ -265,6 +333,7 @@ void StartLowLevelPeriodicTask(void const * argument)
   {
 	  vTaskDelayUntil( &xLastWakeTime, xFrequency );
 
+	  Provide_Robot_Speed();
 	  Provide_Wheel_Speeds();
   }
   /* USER CODE END StartLowLevelPeriodicTask */
@@ -280,10 +349,25 @@ void StartLowLevelPeriodicTask(void const * argument)
 void StartAppPeriodicTask(void const * argument)
 {
   /* USER CODE BEGIN StartAppPeriodicTask */
+	TickType_t xLastWakeTime;
+	const TickType_t xFrequency = 1000;
+	WheelSpeed_Typedef Calculated_wheel_speeds;
+
+		// Initialise the xLastWakeTime variable with the current time.
+	xLastWakeTime = xTaskGetTickCount();
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  vTaskDelayUntil( &xLastWakeTime, xFrequency );
+	  Calculated_wheel_speeds.WheelSpeed_1++;
+	  if(Calculated_wheel_speeds.WheelSpeed_1 == 100)
+	  {
+		  Calculated_wheel_speeds.WheelSpeed_1=-100;
+	  }
+	  Write_Calculated_Wheel_Speeds(&Calculated_wheel_speeds);
+
+
+	  Motorx_Set_Speed();
   }
   /* USER CODE END StartAppPeriodicTask */
 }

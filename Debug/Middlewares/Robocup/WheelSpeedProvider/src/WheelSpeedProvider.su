@@ -1,2 +1,2 @@
-WheelSpeedProvider.c:14:6:Init_Wheel_Speed_Provision	40	static
-WheelSpeedProvider.c:69:6:Provide_Wheel_Speeds	32	static
+WheelSpeedProvider.c:16:6:Init_Wheel_Speed_Provision	40	static
+WheelSpeedProvider.c:71:6:Provide_Wheel_Speeds	40	static

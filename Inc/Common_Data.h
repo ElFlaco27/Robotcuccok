@@ -43,6 +43,9 @@ void Read_Provided_Robot_Speed(RobotSpeed_Typedef * data);
 void Read_Calculated_Wheel_Speeds(WheelSpeed_Typedef * data);
 void Write_Calculated_Wheel_Speeds(WheelSpeed_Typedef * data);
 
+void Read_Provided_Wheel_Speeds(WheelSpeed_Typedef * data);
+void Write_Provided_Wheel_Speeds(WheelSpeed_Typedef * data);
+
 #endif
 
 
