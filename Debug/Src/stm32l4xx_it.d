@@ -29,15 +29,16 @@ Src/stm32l4xx_it.o: ../Src/stm32l4xx_it.c ../Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
- ../Inc/stm32l4xx_it.h ../Inc/Initialize_System.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/MotorController/Inc/MotorController.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_PWM.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Port_config.h \
- ../Inc/variation.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedProvider/Inc/WheelSpeedProvider.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_encoder.h
+ ../Inc/stm32l4xx_it.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 
 ../Inc/main.h:
 
@@ -103,20 +104,20 @@ Src/stm32l4xx_it.o: ../Src/stm32l4xx_it.c ../Inc/main.h \
 
 ../Inc/stm32l4xx_it.h:
 
-../Inc/Initialize_System.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/MotorController/Inc/MotorController.h:
+../Inc/FreeRTOSConfig.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_PWM.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Port_config.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 
-../Inc/variation.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
+../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedProvider/Inc/WheelSpeedProvider.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_encoder.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:

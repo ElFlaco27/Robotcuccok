@@ -215,10 +215,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void SysTick_Handler(void)
-{
-    ++sys_count;
-}
 
 
 /* USER CODE END 4 */
@@ -257,6 +253,7 @@ void StartMwPeriodicTask(void const * argument)
 void StartLowLevelPeriodicTask(void const * argument)
 {
   /* USER CODE BEGIN StartLowLevelPeriodicTask */
+	TickType_t xLastWakeTime;
 	const TickType_t xFrequency = 10;
 
 	// Initialise the xLastWakeTime variable with the current time.
