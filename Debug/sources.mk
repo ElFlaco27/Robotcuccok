@@ -21,6 +21,7 @@ Drivers/STM32L4xx_HAL_Driver/Src \
 Middlewares/Robocup/MotorController/src \
 Middlewares/Robocup/RemoteControl/src \
 Middlewares/Robocup/WheelSpeedCalculation/src \
+Middlewares/Robocup/WheelSpeedProvider/src \
 Src \
 Startup \
 

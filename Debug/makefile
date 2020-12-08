@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
+-include Middlewares/Robocup/WheelSpeedProvider/src/subdir.mk
 -include Middlewares/Robocup/WheelSpeedCalculation/src/subdir.mk
 -include Middlewares/Robocup/RemoteControl/src/subdir.mk
 -include Middlewares/Robocup/MotorController/src/subdir.mk
@@ -28,21 +29,21 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-robocup.elf \
+robocup3.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-robocup.list \
+robocup3.list \
 
 
 # All Target
-all: robocup.elf secondary-outputs
+all: robocup3.elf secondary-outputs
 
 # Tool invocations
-robocup.elf: $(OBJS) $(USER_OBJS) /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/STM32L476RGTX_FLASH.ld
-	arm-none-eabi-gcc -o "robocup.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="robocup.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+robocup3.elf: $(OBJS) $(USER_OBJS) /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/STM32L476RGTX_FLASH.ld
+	arm-none-eabi-gcc -o "robocup3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="robocup3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -51,8 +52,8 @@ default.size.stdout: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-robocup.list: $(EXECUTABLES)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "robocup.list"
+robocup3.list: $(EXECUTABLES)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "robocup3.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 

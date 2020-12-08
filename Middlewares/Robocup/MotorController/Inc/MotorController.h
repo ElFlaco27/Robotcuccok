@@ -34,9 +34,9 @@ typedef struct
 #define Motor1_B_GPIO_PIN 		PWM_1B_GPIO_PIN
 #define Motor1_B_GPIO_AF 		PWM_1B_GPIO_AF
 
-#define MOTOR2					2u
-#define Motor1_EN_GPIO 			GPIOC
-#define Motor1_EN_PIN 			GPIO_PIN_1
+//#define MOTOR2					2u
+#define Motor2_EN_GPIO 			GPIOC
+#define Motor2_EN_PIN 			GPIO_PIN_1
 #define Motor2_A_TIM 			PWM_2A_TIM
 #define Motor2_A_TIM_CHANNEL 	PWM_2A_TIM_CHANNEL
 #define Motor2_A_GPIO 			PWM_2A_GPIO
@@ -48,9 +48,9 @@ typedef struct
 #define Motor2_B_GPIO_PIN 		PWM_2B_GPIO_PIN
 #define Motor2_B_GPIO_AF 		PWM_2B_GPIO_AF
 
-#define MOTOR3					3u
-#define Motor1_EN_GPIO 			GPIOC
-#define Motor1_EN_PIN 			GPIO_PIN_7
+//#define MOTOR3					3u
+#define Motor3_EN_GPIO 			GPIOC
+#define Motor3_EN_PIN 			GPIO_PIN_7
 #define Motor3_A_TIM 			PWM_3A_TIM
 #define Motor3_A_TIM_CHANNEL 	PWM_3A_TIM_CHANNEL
 #define Motor3_A_GPIO 			PWM_3A_GPIO
@@ -62,9 +62,9 @@ typedef struct
 #define Motor3_B_GPIO_PIN 		PWM_3B_GPIO_PIN
 #define Motor3_B_GPIO_AF 		PWM_3B_GPIO_AF
 
-#define MOTOR4					4u
-#define Motor1_EN_GPIO 			GPIOC
-#define Motor1_EN_PIN 			GPIO_PIN_13
+//#define MOTOR4					4u
+#define Motor4_EN_GPIO 			GPIOC
+#define Motor4_EN_PIN 			GPIO_PIN_13
 #define Motor4_A_TIM 			PWM_4A_TIM
 #define Motor4_A_TIM_CHANNEL 	PWM_4A_TIM_CHANNEL
 #define Motor4_A_GPIO 			PWM_4A_GPIO

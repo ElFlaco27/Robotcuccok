@@ -11,6 +11,7 @@
 #include "MotorController.h"
 #include "RemoteControl.h"
 #include "WheelSpeedCalculation.h"
+#include "WheelSpeedProvider.h"
 
 void Init_System_Startup(void);
 

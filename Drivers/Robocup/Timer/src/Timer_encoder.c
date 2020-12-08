@@ -36,7 +36,7 @@ void TIMx_ENC_Init(TIM_ENC_Typedef config)
 
 	/* USER CODE END TIM1_Init 1 */
 	TIM_handler.Instance = config.TIMx;
-	TIM_handler.Init.Prescaler = (uint32_t)(SystemCoreClock / TIMx_ENC_CLK) - 1;
+	TIM_handler.Init.Prescaler = 0;
 	TIM_handler.Init.CounterMode = TIM_COUNTERMODE_UP;
 	TIM_handler.Init.Period = 65535;
 	TIM_handler.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -51,7 +51,7 @@ void TIMx_ENC_Init(TIM_ENC_Typedef config)
 	sConfigENC.IC2Selection = TIM_ICSELECTION_DIRECTTI;
 	sConfigENC.IC2Prescaler = TIM_ICPSC_DIV1;
 	sConfigENC.IC2Filter = 0;
-	if (HAL_TIM_Encoder_Init(&htim1, &sConfig) != HAL_OK)
+	if (HAL_TIM_Encoder_Init(&TIM_handler, &sConfigENC) != HAL_OK)
 	{
 		Error_Handler();
 	}
@@ -63,17 +63,51 @@ void TIMx_ENC_Init(TIM_ENC_Typedef config)
 		Error_Handler();
 	}
 
+
+	if(config.GPIOx_ch1 == GPIOA)
+	{
+
+		__HAL_RCC_GPIOA_CLK_ENABLE();
+	}
+	else if(config.GPIOx_ch1 == GPIOB)
+	{
+
+		__HAL_RCC_GPIOB_CLK_ENABLE();
+	}
+	else if(config.GPIOx_ch1 == GPIOC)
+	{
+
+		__HAL_RCC_GPIOC_CLK_ENABLE();
+	}
+
+	if(config.GPIOx_ch2 == GPIOA)
+	{
+
+		__HAL_RCC_GPIOA_CLK_ENABLE();
+	}
+	else if(config.GPIOx_ch2 == GPIOB)
+	{
+
+		__HAL_RCC_GPIOB_CLK_ENABLE();
+	}
+	else if(config.GPIOx_ch2 == GPIOC)
+	{
+
+		__HAL_RCC_GPIOC_CLK_ENABLE();
+	}
+
+
 	GPIO_InitStruct.Pin = config.GPIO_Pinx_ch1;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-	GPIO_InitStruct.Pull = GPIO_PULLUP;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	GPIO_InitStruct.Alternate = config.GPIO_AlternateFunctionx;
 	HAL_GPIO_Init(config.GPIOx_ch1, &GPIO_InitStruct);
 
 	GPIO_InitStruct.Pin = config.GPIO_Pinx_ch2;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-	GPIO_InitStruct.Pull = GPIO_PULLUP;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	GPIO_InitStruct.Alternate = config.GPIO_AlternateFunctionx;
 	HAL_GPIO_Init(config.GPIOx_ch2, &GPIO_InitStruct);
 
@@ -105,13 +139,13 @@ void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* htim_ENC)
 void TIMx_ENC_Start(TIM_ENC_Typedef config)
 {
 	TIM_handler.Instance = config.TIMx;
-	HAL_TIM_Encoder_Start(&TIM_handler, config.TIM_channelx);
+	HAL_TIM_Encoder_Start(&TIM_handler, TIM_CHANNEL_ALL);
 }
 
 void TIMx_ENC_Stop(TIM_ENC_Typedef config)
 {
 	TIM_handler.Instance = config.TIMx;
-	HAL_TIM_Encoder_Stop(&TIM_handler, config.TIM_channelx);
+	HAL_TIM_Encoder_Stop(&TIM_handler, TIM_CHANNEL_ALL);
 }
 
 

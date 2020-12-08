@@ -56,16 +56,17 @@
 #define PWM_4B_GPIO_AF 		GPIO_AF2_TIM3
 
 /* MOTOR encoder Channel assigment*/
-#define ENC_1A_TIM 			TIM2
+#define ENC_1A_TIM 			TIM1
 #define ENC_1A_TIM_CHANNEL 	TIM_CHANNEL_1
 #define ENC_1A_GPIO 		GPIOA
-#define ENC_1A_GPIO_PIN 	GPIO_PIN_0
-#define ENC_1A_GPIO_AF 		GPIO_AF1_TIM2
-#define ENC_1B_TIM 			TIM2
+#define ENC_1A_GPIO_PIN 	GPIO_PIN_8
+#define ENC_1A_GPIO_AF 		GPIO_AF1_TIM1
+#define ENC_1B_TIM 			TIM1
 #define ENC_1B_TIM_CHANNEL 	TIM_CHANNEL_2
 #define ENC_1B_GPIO 		GPIOA
-#define ENC_1B_GPIO_PIN 	GPIO_PIN_1
-#define ENC_1B_GPIO_AF 		GPIO_AF1_TIM2
+#define ENC_1B_GPIO_PIN 	GPIO_PIN_9
+#define ENC_1B_GPIO_AF 		GPIO_AF1_TIM1
+#define ENC1_COUNT()        ENC_1A_TIM->CNT
 
 #define ENC_2A_TIM 			TIM3
 #define ENC_2A_TIM_CHANNEL 	TIM_CHANNEL_1

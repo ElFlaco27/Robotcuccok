@@ -11,9 +11,9 @@ TIM_HandleTypeDef htim1;
 
 void Init_System_Startup(void)
 {
-	htim1.Instance = TIM1;
 	//Remote_Control_init();
-	Motor_Init();
-	Motor_Start();
+	Init_Wheel_Speed_Provision();
+	//Motor_Init();
+	//Motor_Start();
 	//Calibrate_Remote_Control();
 }

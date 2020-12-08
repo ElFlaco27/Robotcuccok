@@ -30,12 +30,14 @@ Src/stm32l4xx_it.o: ../Src/stm32l4xx_it.c ../Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Inc/stm32l4xx_it.h ../Inc/Initialize_System.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Middlewares/Robocup/MotorController/Inc/MotorController.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Drivers/Robocup/Timer/Inc/Timer_PWM.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Drivers/Robocup/Timer/Inc/Port_config.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/MotorController/Inc/MotorController.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_PWM.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Port_config.h \
  ../Inc/variation.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
- /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedProvider/Inc/WheelSpeedProvider.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_encoder.h
 
 ../Inc/main.h:
 
@@ -103,14 +105,18 @@ Src/stm32l4xx_it.o: ../Src/stm32l4xx_it.c ../Inc/main.h \
 
 ../Inc/Initialize_System.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Middlewares/Robocup/MotorController/Inc/MotorController.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/MotorController/Inc/MotorController.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Drivers/Robocup/Timer/Inc/Timer_PWM.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_PWM.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Drivers/Robocup/Timer/Inc/Port_config.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Port_config.h:
 
 ../Inc/variation.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
 
-/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
+
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedProvider/Inc/WheelSpeedProvider.h:
+
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Drivers/Robocup/Timer/Inc/Timer_encoder.h:

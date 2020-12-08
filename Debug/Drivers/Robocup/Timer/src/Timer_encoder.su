@@ -1,0 +1,4 @@
+Timer_encoder.c:29:6:TIMx_ENC_Init	104	static
+Timer_encoder.c:118:6:HAL_TIM_Encoder_MspInit	32	static
+Timer_encoder.c:139:6:TIMx_ENC_Start	8	static
+Timer_encoder.c:145:6:TIMx_ENC_Stop	8	static
