@@ -333,7 +333,7 @@ void StartLowLevelPeriodicTask(void const * argument)
   {
 	  vTaskDelayUntil( &xLastWakeTime, xFrequency );
 
-	  Provide_Robot_Speed();
+	  //Provide_Robot_Speed();
 	  Provide_Wheel_Speeds();
   }
   /* USER CODE END StartLowLevelPeriodicTask */

@@ -96,11 +96,11 @@ void Provide_Wheel_Speeds(void)
 	}
 
 	temp_diff= Enc1_diff;
-	Provided_wheel_speeds.WheelSpeed_1= (float)((2*(float)Enc1_diff*M_PI)/(ENCODER_COUNT*MOT_TO_WHEEL_RATIO*(float)0.01))*RAD_PER_S_TO_RPM;
-
+	//Provided_wheel_speeds.WheelSpeed_1= (float)((2*(float)Enc1_diff*M_PI)/(ENCODER_COUNT*MOT_TO_WHEEL_RATIO*(float)0.01))*RAD_PER_S_TO_RPM;
+	if(Enc1_value > 110)Provided_wheel_speeds.WheelSpeed_1=100;
 	if(ENC_1_TIM_DIR == BACKWARD_DIR)
 	{
-		Provided_wheel_speeds.WheelSpeed_1 = Provided_wheel_speeds.WheelSpeed_1 * -1;
+		Provided_wheel_speeds.WheelSpeed_1 = -1 * Enc1_diff;
 	}
 
 	Write_Provided_Wheel_Speeds(&Provided_wheel_speeds);
