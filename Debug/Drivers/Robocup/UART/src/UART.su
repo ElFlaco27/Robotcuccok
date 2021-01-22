@@ -1,0 +1,2 @@
+UART.c:17:6:HAL_UART_RxCpltCallback	16	static
+UART.c:24:6:HAL_UART_TxCpltCallback	24	static

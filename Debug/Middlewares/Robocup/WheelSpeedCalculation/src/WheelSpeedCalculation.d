@@ -1,6 +1,6 @@
 Middlewares/Robocup/WheelSpeedCalculation/src/WheelSpeedCalculation.o: \
  ../Middlewares/Robocup/WheelSpeedCalculation/src/WheelSpeedCalculation.c \
- ../Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -33,10 +33,10 @@ Middlewares/Robocup/WheelSpeedCalculation/src/WheelSpeedCalculation.o: \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
+ /Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h \
  ../Inc/variation.h ../Inc/Common_Data.h ../Inc/variation.h
 
-../Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/WheelSpeedCalculation/Inc/WheelSpeedCalculation.h:
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 
@@ -102,7 +102,7 @@ Middlewares/Robocup/WheelSpeedCalculation/src/WheelSpeedCalculation.o: \
 
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 
-../Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
+/Users/dimagic/STM32CubeIDE/workspace_1.0.2/robocup3/Middlewares/Robocup/RemoteControl/Inc/RemoteControl.h:
 
 ../Inc/variation.h:
 

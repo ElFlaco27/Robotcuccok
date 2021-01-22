@@ -214,39 +214,39 @@ void Motorx_Set_Speed(void)
 	TIM_PWM_Typedef TIM_handler = {0};
 	WheelSpeed_Typedef Calculated_wheel_speeds;
 
-	Read_Calculated_Wheel_Speeds(&Calculated_wheel_speeds);
+	Read_Controlled_Wheel_Speeds(&Calculated_wheel_speeds);
 
-	if(Calculated_wheel_speeds.WheelSpeed_1 > 100)
+	if(Calculated_wheel_speeds.WheelSpeed_1 > 1)
 	{
-		Calculated_wheel_speeds.WheelSpeed_1 = 100;
+		Calculated_wheel_speeds.WheelSpeed_1 = 1;
 	}
-	else if(Calculated_wheel_speeds.WheelSpeed_1 < (-100))
+	else if(Calculated_wheel_speeds.WheelSpeed_1 < (-1))
 	{
-		Calculated_wheel_speeds.WheelSpeed_1 = -100;
+		Calculated_wheel_speeds.WheelSpeed_1 = -1;
 	}
-	if(Calculated_wheel_speeds.WheelSpeed_2 > 100)
+	if(Calculated_wheel_speeds.WheelSpeed_2 > 1)
 	{
-		Calculated_wheel_speeds.WheelSpeed_2 = 100;
+		Calculated_wheel_speeds.WheelSpeed_2 = 1;
 	}
-	else if(Calculated_wheel_speeds.WheelSpeed_2 < (-100))
+	else if(Calculated_wheel_speeds.WheelSpeed_2 < (-1))
 	{
-		Calculated_wheel_speeds.WheelSpeed_2 = -100;
+		Calculated_wheel_speeds.WheelSpeed_2 = -1;
 	}
-	if(Calculated_wheel_speeds.WheelSpeed_3 > 100)
+	if(Calculated_wheel_speeds.WheelSpeed_3 > 1)
 	{
-		Calculated_wheel_speeds.WheelSpeed_3 = 100;
+		Calculated_wheel_speeds.WheelSpeed_3 = 1;
 	}
-	else if(Calculated_wheel_speeds.WheelSpeed_3 < (-100))
+	else if(Calculated_wheel_speeds.WheelSpeed_3 < (-1))
 	{
-		Calculated_wheel_speeds.WheelSpeed_3 = -100;
+		Calculated_wheel_speeds.WheelSpeed_3 = -1;
 	}
-	if(Calculated_wheel_speeds.WheelSpeed_4 > 100)
+	if(Calculated_wheel_speeds.WheelSpeed_4 > 1)
 	{
-		Calculated_wheel_speeds.WheelSpeed_4 = 100;
+		Calculated_wheel_speeds.WheelSpeed_4 = 1;
 	}
-	else if(Calculated_wheel_speeds.WheelSpeed_4 < (-100))
+	else if(Calculated_wheel_speeds.WheelSpeed_4 < (-1))
 	{
-		Calculated_wheel_speeds.WheelSpeed_4 = -100;
+		Calculated_wheel_speeds.WheelSpeed_4 = -1;
 	}
 
 	if(ZERO_SPEED <= Calculated_wheel_speeds.WheelSpeed_1)
@@ -255,7 +255,7 @@ void Motorx_Set_Speed(void)
 		TIM_handler.TIM_channelx = Motor1_A_TIM_CHANNEL;
 		TIM_handler.Frequency = PWM_FREQUENCY;
 
-		TIM_handler.Duty_Cicle = (uint8_t)Calculated_wheel_speeds.WheelSpeed_1;
+		TIM_handler.Duty_Cicle = (uint8_t)(Calculated_wheel_speeds.WheelSpeed_1 * 100);
 		Change_PWM_Pulse(TIM_handler);
 
 		TIM_handler.TIMx = Motor1_B_TIM;
@@ -276,7 +276,7 @@ void Motorx_Set_Speed(void)
 		TIM_handler.TIMx = Motor1_B_TIM;
 		TIM_handler.TIM_channelx = Motor1_B_TIM_CHANNEL;
 		TIM_handler.Frequency = PWM_FREQUENCY;
-		TIM_handler.Duty_Cicle = (uint8_t)(Calculated_wheel_speeds.WheelSpeed_1 * -1);
+		TIM_handler.Duty_Cicle = (uint8_t)(Calculated_wheel_speeds.WheelSpeed_1 * -100);
 		Change_PWM_Pulse(TIM_handler);
 	}
 

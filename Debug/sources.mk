@@ -17,7 +17,9 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Drivers/Robocup/Timer/src \
+Drivers/Robocup/UART/src \
 Drivers/STM32L4xx_HAL_Driver/Src \
+Middlewares/Robocup/CommunicationHandler/src \
 Middlewares/Robocup/MotorController/src \
 Middlewares/Robocup/RemoteControl/src \
 Middlewares/Robocup/WheelSpeedCalculation/src \

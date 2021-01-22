@@ -39,12 +39,23 @@ void Write_RC_CH3_Min(uint32_t * data);
 void Read_RC_CH3_Min(uint32_t * data);
 void Write_Provided_Robot_Speed(RobotSpeed_Typedef * data);
 void Read_Provided_Robot_Speed(RobotSpeed_Typedef * data);
+void Write_Received_Robot_Speed(RobotSpeed_Typedef * data);
+void Read_Received_Robot_Speed(RobotSpeed_Typedef * data);
+void Write_Transmit_Enabled(uint8_t * data);
+void Read_Transmit_Enabled(uint8_t * data);
+void Write_Wifi_Connected(uint8_t * data);
+void Read_Wifi_Connected(uint8_t * data);
+void Write_Connection_Estabilished(uint8_t * data);
+void Read_Connection_Estabilished(uint8_t * data);
 
 void Read_Calculated_Wheel_Speeds(WheelSpeed_Typedef * data);
 void Write_Calculated_Wheel_Speeds(WheelSpeed_Typedef * data);
 
 void Read_Provided_Wheel_Speeds(WheelSpeed_Typedef * data);
 void Write_Provided_Wheel_Speeds(WheelSpeed_Typedef * data);
+
+void Read_Controlled_Wheel_Speeds(WheelSpeed_Typedef * data);
+void Write_Controlled_Wheel_Speeds(WheelSpeed_Typedef * data);
 
 #endif
 

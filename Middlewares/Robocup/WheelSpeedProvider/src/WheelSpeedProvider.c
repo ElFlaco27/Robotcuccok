@@ -71,13 +71,10 @@ void Init_Wheel_Speed_Provision(void)
 void Provide_Wheel_Speeds(void)
 {
 	WheelSpeed_Typedef Provided_wheel_speeds;
-	uint32_t temp_old;
-	uint32_t temp_new;
-	uint32_t temp_diff;
+	int Direction = POSITIVE;
+	uint8_t isEnc1_ok=FALSE;
 	Enc1_value_old = Enc1_value;
-	temp_old= Enc1_value_old;
 	Enc1_value = ENC_1_TIM_CNT;
-	temp_new=Enc1_value;
 	if((ENC_1_TIM_DIR == FORWARD_DIR) && (Enc1_value < Enc1_value_old))
 	{
 		Enc1_diff = Enc1_value - (0xFFFF - Enc1_value_old);
@@ -85,23 +82,28 @@ void Provide_Wheel_Speeds(void)
 	else if((ENC_1_TIM_DIR == BACKWARD_DIR) && (Enc1_value > Enc1_value_old))
 	{
 		Enc1_diff = Enc1_value_old - (0xFFFF - Enc1_value);
+		Direction=NEGATIVE;
 	}
 	else if(ENC_1_TIM_DIR == BACKWARD_DIR)
 	{
 		Enc1_diff = Enc1_value_old - Enc1_value;
+		Direction=NEGATIVE;
 	}
 	else
 	{
 		Enc1_diff = Enc1_value - Enc1_value_old;
 	}
-
-	temp_diff= Enc1_diff;
-	//Provided_wheel_speeds.WheelSpeed_1= (float)((2*(float)Enc1_diff*M_PI)/(ENCODER_COUNT*MOT_TO_WHEEL_RATIO*(float)0.01))*RAD_PER_S_TO_RPM;
-	if(Enc1_value > 110)Provided_wheel_speeds.WheelSpeed_1=100;
-	if(ENC_1_TIM_DIR == BACKWARD_DIR)
+	if(MIN_LIMIT <= Enc1_diff && MAX_LIMIT >= Enc1_diff)
 	{
-		Provided_wheel_speeds.WheelSpeed_1 = -1 * Enc1_diff;
+
+		Provided_wheel_speeds.WheelSpeed_1= Enc1_diff * ANG_SPD_TO_METER_PER_SEC * Direction;
+		isEnc1_ok=TRUE;
 	}
 
-	Write_Provided_Wheel_Speeds(&Provided_wheel_speeds);
+
+	if(TRUE == isEnc1_ok)
+	{
+		Write_Provided_Wheel_Speeds(&Provided_wheel_speeds);
+	}
+
 }

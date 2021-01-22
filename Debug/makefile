@@ -18,7 +18,9 @@ RM := rm -rf
 -include Middlewares/Robocup/WheelSpeedCalculation/src/subdir.mk
 -include Middlewares/Robocup/RemoteControl/src/subdir.mk
 -include Middlewares/Robocup/MotorController/src/subdir.mk
+-include Middlewares/Robocup/CommunicationHandler/src/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
+-include Drivers/Robocup/UART/src/subdir.mk
 -include Drivers/Robocup/Timer/src/subdir.mk
 -include subdir.mk
 -include objects.mk
